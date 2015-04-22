@@ -1,11 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'selector-list/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "selector-list"
-  spec.version       = SelectorList::VERSION
+  spec.version       = "1.0.0"
   spec.authors       = ["Federico Aloi"]
   spec.email         = ["federico.aloi@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}

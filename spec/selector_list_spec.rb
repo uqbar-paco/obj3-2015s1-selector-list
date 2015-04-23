@@ -28,11 +28,6 @@ RSpec.describe 'SelectorList' do
     @fido = Perro.new
     @pepa = Tortuga.new
     @tutu = Auto.new
-
-    @slist2 = SelectorList.new
-    @slist2.add_selector(:size)
-    @slist2.add_selector(:cuanto_come)
-    @slist2.add_selector(:empty?)
   end
 
   it 'select_responders devuelve la sublista de los objetos dados que entienden todos los selectores registrados en el SelectorList' do
@@ -47,5 +42,14 @@ RSpec.describe 'SelectorList' do
     it 'cuando ningun coincide' do
       expect(@slist.select_selectors_for(4)).to eql([])
     end
+  end
+
+  it 'values_for devuelve una lista con el resultado de enviarle cada mensaje que tengo en mi lista y que entiende el objeto' do
+    slist2 = SelectorList.new
+    slist2.add_selector(:size)
+    slist2.add_selector(:cuanto_come)
+    slist2.add_selector(:empty?)
+
+    expect(slist2.values_for('hola')).to eql([4,false])
   end
 end

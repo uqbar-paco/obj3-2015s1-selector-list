@@ -22,4 +22,8 @@ class SelectorList
   def select_selectors_for(an_object)
     an_object.methods & @selectors
   end
+
+  def values_for(an_object)
+    select_selectors_for(an_object).collect { |selector| an_object.send(selector) }
+  end
 end

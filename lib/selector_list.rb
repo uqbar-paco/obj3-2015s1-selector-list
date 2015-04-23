@@ -18,4 +18,8 @@ class SelectorList
       @selectors.all? { |selector| objeto.respond_to? selector }
     }
   end
+
+  def select_selectors_for(an_object)
+    an_object.methods & @selectors
+  end
 end

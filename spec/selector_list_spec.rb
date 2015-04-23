@@ -38,4 +38,14 @@ RSpec.describe 'SelectorList' do
   it 'select_responders devuelve la sublista de los objetos dados que entienden todos los selectores registrados en el SelectorList' do
     expect(@slist.select_responders([@fido, @pepa, @tutu, 'hola', 4])).to eql([@fido, @pepa])
   end
+
+  describe 'select_selectors_for devuelve la sublista de los selectores registrados en el SelectorList, de los que entiende el objeto' do
+    it 'cuando hay alguno que coincide' do
+      expect(@slist.select_selectors_for(@fido)).to eql([:velocidad, :cuanto_come])
+    end
+
+    it 'cuando ningun coincide' do
+      expect(@slist.select_selectors_for(4)).to eql([])
+    end
+  end
 end
